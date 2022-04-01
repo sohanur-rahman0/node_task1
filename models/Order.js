@@ -19,4 +19,7 @@ const Order = db.define('order', {
   },
 })
 
+Product.hasMany(Order, { foreignKey: 'product_id' })
+Order.belongsTo(Product, { foreignKey: 'product_id' })
+
 module.exports = Order

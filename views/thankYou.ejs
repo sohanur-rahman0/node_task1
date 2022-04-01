@@ -19,10 +19,11 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Product Id</th>
+                <th scope="col">Product Title</th>
                 <th scope="col">Total Price</th>
                 <th scope="col">Stripe Id</th>
                 <th scope="col">Status</th>
+                <th scope="col">Payment method</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +33,7 @@
                         <%= order.id %>
                     </th>
                     <td>
-                        <%= order.product_id %>
+                        <%= order.product.title %>
                     </td>
                     <td>
                         <%= order.total %>
@@ -42,6 +43,10 @@
                     </td>
                     <td>
                         <%= order.status %>
+                    </td>
+
+                    <td>
+                        Credit Card
                     </td>
                 </tr>
                 <% }) %>

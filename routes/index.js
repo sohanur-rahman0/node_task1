@@ -62,9 +62,16 @@ router.get('/product/:id', async (req, res) => {
   }
 })
 
-router.get('/thankYOu', async (req, res) => {
+router.get('/thankYou', async (req, res) => {
   try {
-    const orders = await Order.findAll()
+    const orders = await Order.findAll({
+      include: [
+        {
+          model: Product,
+          required: true,
+        },
+      ],
+    })
 
     res.render('thankYou', { title: 'Thank You', orders })
   } catch (error) {
