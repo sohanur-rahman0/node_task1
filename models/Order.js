@@ -2,6 +2,8 @@ const Sequelize = require('sequelize')
 
 const db = require('../config/db.config')
 
+const Product = require('./Product')
+
 const Order = db.define('order', {
   product_id: {
     type: Sequelize.INTEGER,

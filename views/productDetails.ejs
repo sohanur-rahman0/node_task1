@@ -28,7 +28,7 @@
     <a href="/">Back to Products</a>
     <form action="/payment" method="post">
         <input type="hidden" name="amount" value="<%= product.price %>">
-        <input type="hidden" name="productId" value="<%= product.id %>">
+        <input type="hidden" name="product_id" value="<%= product.id %>">
         <script src="//checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= stripePublicKey %>"
             data-amount="<%= product.price %>" data-name="<%= product.title %>"
             data-description="<%= product.description %>" data-locale="auto" data-currency="usd"></script>

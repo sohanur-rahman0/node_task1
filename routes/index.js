@@ -62,6 +62,16 @@ router.get('/product/:id', async (req, res) => {
   }
 })
 
+router.get('/thankYOu', async (req, res) => {
+  try {
+    const orders = await Order.findAll()
+
+    res.render('thankYou', { title: 'Thank You', orders })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 router.post('/payment', async (req, res) => {
   try {
     // console.log(req.body)
@@ -86,12 +96,12 @@ router.post('/payment', async (req, res) => {
     })
     // console.log(charge)
     await Order.create({
-      product_id: req.body.productId,
+      product_id: req.body.product_id,
       total: req.body.amount,
       stripe_id: charge.id,
       status: charge.paid ? 'paid' : 'failed',
     })
-    res.redirect('/')
+    res.redirect('/thankYou')
   } catch (error) {
     console.log(error)
   }
